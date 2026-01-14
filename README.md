@@ -92,6 +92,20 @@ Backtesting framework for portfolio strategies.
 - `compare_strategies`: Compare multiple strategies side-by-side
 - `plot_results`: Visualize backtest results
 
+### 8. calibration.py
+Threshold calibration with signal/noise control and empirical stopping criteria.
+
+**Classes:**
+- `ThresholdCalibrator`: Calibrate thresholds with precision/recall constraints
+- `SignalNoiseController`: Control signal vs noise ratio directly
+- `EmpiricalStoppingCriteria`: Data-driven stopping based on convergence curves
+- `PrecisionRecallOptimizer`: Optimize precision/recall tradeoffs
+- `EvaluationLoop`: Concrete evaluation with calibration and stopping
+
+**Functions:**
+- `calibrate_regime_thresholds`: Regime-specific threshold calibration
+- `evaluate_with_tradeoffs`: Analyze precision/recall tradeoff curves
+
 ## Usage Examples
 
 ### Basic VQ-VAE-HMM Training
@@ -189,6 +203,29 @@ comparison = compare_strategies({'strategy1': result1, 'strategy2': result2})
 print(comparison)
 ```
 
+### Threshold Calibration
+```python
+from calibration import ThresholdCalibrator, SignalNoiseController, EmpiricalStoppingCriteria
+
+# calibrate with precision/recall constraints
+calibrator = ThresholdCalibrator(min_precision=0.7, min_recall=0.5)
+result = calibrator.calibrate(predictions, targets)
+print(f"Optimal threshold: {result.threshold}")
+print(f"F1 Score: {result.f1_score}")
+
+# control signal/noise ratio
+controller = SignalNoiseController(target_signal_ratio=0.3)
+threshold = controller.find_threshold(predictions)
+quality = controller.evaluate_signal_quality(predictions, targets, threshold)
+
+# empirical stopping criteria
+stopping = EmpiricalStoppingCriteria(patience=10, min_delta=0.001)
+for epoch in range(100):
+    metrics = train_epoch()
+    if stopping.should_stop(metrics):
+        break
+```
+
 ## Key Features
 
 ### Risk Management
@@ -234,6 +271,13 @@ print(comparison)
 - Performance metrics (Sharpe, Sortino, Calmar)
 - Drawdown analysis
 
+### Threshold Calibration
+- Signal vs noise ratio control
+- Precision/recall tradeoff optimization
+- Empirical stopping criteria
+- Convergence curve analysis
+- Regime-specific thresholds
+
 ## Model Improvements Summary
 
 1. **Architecture**: Attention, Transformers, Bayesian, Ensemble, Hierarchical
@@ -244,6 +288,7 @@ print(comparison)
 6. **Hedging**: Delta, Gamma, Transaction-aware, Transition-aware
 7. **Uncertainty**: Bayesian weights, Confidence sizing, Ensemble predictions
 8. **Backtesting**: Walk-forward, Regime-specific, Transaction costs, Performance metrics
+9. **Calibration**: Signal/noise control, Precision/recall tradeoffs, Empirical stopping
 
 ## Dependencies
 - PyTorch

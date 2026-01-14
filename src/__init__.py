@@ -1,7 +1,7 @@
 """
 VQ-VAE-HMM Portfolio Optimization System
 
-A comprehensive framework for regime-switching models with advanced 
+A comprehensive framework for regime-switching models with portfolio 
 portfolio optimization and delta hedging strategies.
 """
 

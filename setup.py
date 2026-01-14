@@ -10,7 +10,7 @@ setup(
     version="1.0.0",
     author="Your Name",
     author_email="your.email@example.com",
-    description="Regime-switching models with advanced portfolio optimization",
+    description="Regime-switching models with portfolio optimization",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yourusername/VQ-VAE-HMM-model",

@@ -123,7 +123,7 @@ class WalkForwardTrainer:
         return results
 
 
-def train_advanced_portfolio(model, vae_hmm, dataloader, returns_data, 
+def train_portfolio(model, vae_hmm, dataloader, returns_data, 
                             num_epochs=100, lr=0.001, use_scheduler=True):
     opt = optim.Adam(model.parameters(), lr=lr)
     scheduler = CosineAnnealingLR(opt, T_max=num_epochs) if use_scheduler else None

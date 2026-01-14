@@ -19,7 +19,7 @@ def sortino_loss(weights: torch.Tensor, returns: torch.Tensor,
     return -(mu - rf).div(downside_std).mean()
 
 
-def advanced_portfolio_loss(weights: torch.Tensor, returns: torch.Tensor,
+def portfolio_loss(weights: torch.Tensor, returns: torch.Tensor,
                            prev_weights: Optional[torch.Tensor] = None,
                            tx_cost: float = 0.001,
                            max_weight: float = 0.3,

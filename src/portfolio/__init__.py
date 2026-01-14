@@ -7,7 +7,7 @@ from .optimizers import (
     BayesianPortfolioOptimizer
 )
 from .hedging import RegimeDeltaHedger, DynamicDeltaHedger
-from .losses import sharpe_loss, sortino_loss, advanced_portfolio_loss, delta_hedge_loss
+from .losses import sharpe_loss, sortino_loss, portfolio_loss, delta_hedge_loss
 
 __all__ = [
     "RegimePortfolioOptimizer",
@@ -18,6 +18,6 @@ __all__ = [
     "DynamicDeltaHedger",
     "sharpe_loss",
     "sortino_loss",
-    "advanced_portfolio_loss",
+    "portfolio_loss",
     "delta_hedge_loss"
 ]

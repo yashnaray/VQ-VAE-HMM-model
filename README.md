@@ -1,6 +1,6 @@
 # VQ-VAE-HMM Portfolio Optimization System
 
-Implementation of regime-switching models with advanced portfolio optimization and delta hedging.
+Implementation of regime-switching models with portfolio optimization and delta hedging.
 
 ## Core Modules
 
@@ -28,7 +28,7 @@ Neural network architectures for portfolio optimization.
 Comprehensive loss functions for portfolio optimization.
 
 **Loss Functions:**
-- `advanced_portfolio_loss`: Multi-objective with transaction costs, position limits, leverage, drawdown, CVaR
+- `portfolio_loss`: Multi-objective with transaction costs, position limits, leverage, drawdown, CVaR
 - `sortino_loss`: Downside risk optimization
 - `calmar_loss`: Return/max drawdown ratio
 - `risk_parity_loss`: Equal risk contribution
@@ -37,7 +37,7 @@ Comprehensive loss functions for portfolio optimization.
 - `transition_aware_loss`: Accounts for expected regime changes
 
 ### 4. training.py
-Advanced training strategies and optimization techniques.
+Training strategies and optimization techniques.
 
 **Classes:**
 - `MetaPortfolioOptimizer`: MAML-style meta-learning for fast adaptation
@@ -45,7 +45,7 @@ Advanced training strategies and optimization techniques.
 - `WalkForwardTrainer`: Realistic backtesting with rolling windows
 
 **Functions:**
-- `train_advanced_portfolio`: Comprehensive training with schedulers, adversarial training, ensembles
+- `train_portfolio`: Comprehensive training with schedulers, adversarial training, ensembles
 
 ### 5. regime_utilities.py
 Utilities for regime analysis and portfolio construction.
@@ -98,15 +98,15 @@ trained_model = train_model(model, dataloader, num_epochs=150, lr=1e-5)
 
 ### Portfolio Optimization with Transformer
 ```python
-from advanced_portfolio_optimizer import TransformerPortfolioOptimizer
-from advanced_loss_functions import advanced_portfolio_loss
-from advanced_training import train_advanced_portfolio
+from portfolio_optimizer import TransformerPortfolioOptimizer
+from loss_functions import portfolio_loss
+from training import train_portfolio
 
 # Create optimizer
 portfolio_model = TransformerPortfolioOptimizer(K=3, n_assets=10, hidden_dim=64)
 
-# Train with advanced features
-trained_portfolio = train_advanced_portfolio(
+# Train with features
+trained_portfolio = train_portfolio(
     portfolio_model, vae_hmm, dataloader, returns_data,
     num_epochs=100, lr=0.001, use_scheduler=True,
     use_adversarial=True, use_ensemble=False
@@ -133,7 +133,7 @@ with torch.no_grad():
 
 ### Meta-Learning for Fast Adaptation
 ```python
-from advanced_training import MetaPortfolioOptimizer
+from training import MetaPortfolioOptimizer
 
 meta_optimizer = MetaPortfolioOptimizer(
     model, inner_lr=0.01, outer_lr=0.001, n_inner_steps=5
@@ -147,7 +147,7 @@ for epoch in range(100):
 
 ### Walk-Forward Validation
 ```python
-from advanced_training import WalkForwardTrainer
+from training import WalkForwardTrainer
 
 trainer = WalkForwardTrainer(
     model, loss_fn, train_window=252, test_window=21, retrain_freq=21
@@ -165,7 +165,7 @@ results = trainer.run(full_data, n_periods=50)
 - CVaR optimization
 - Regime-conditional covariance
 
-### Advanced Architectures
+### Architectures
 - Multi-head attention
 - Transformer encoders
 - Bayesian uncertainty quantification

@@ -79,6 +79,19 @@ Regime-aware delta hedging strategies.
 - `optimal_hedge_frequency`: Leland (1985) with regime persistence
 - `train_delta_hedger`: Training loop for hedging models
 
+### 7. backtesting.py
+Backtesting framework for portfolio strategies.
+
+**Classes:**
+- `Backtester`: Core backtesting engine with transaction costs and slippage
+- `WalkForwardBacktest`: Rolling window backtesting with retraining
+- `RegimeBacktest`: Regime-specific performance analysis
+- `BacktestResult`: Results container with metrics and equity curve
+
+**Functions:**
+- `compare_strategies`: Compare multiple strategies side-by-side
+- `plot_results`: Visualize backtest results
+
 ## Usage Examples
 
 ### Basic VQ-VAE-HMM Training
@@ -156,6 +169,26 @@ trainer = WalkForwardTrainer(
 results = trainer.run(full_data, n_periods=50)
 ```
 
+### Backtesting
+```python
+from backtesting import Backtester, WalkForwardBacktest, compare_strategies
+
+# basic backtest
+backtester = Backtester(initial_capital=100000, tx_cost=0.001)
+result = backtester.run(portfolio_model, vae_hmm, data, prices, returns)
+
+print(f"Sharpe Ratio: {result.metrics['sharpe_ratio']:.2f}")
+print(f"Max Drawdown: {result.metrics['max_drawdown']:.2%}")
+
+# walk-forward backtest
+wf_backtest = WalkForwardBacktest(train_window=252, test_window=21)
+wf_results = wf_backtest.run(portfolio_model, vae_hmm, train_fn, data, prices, returns)
+
+# compare strategies
+comparison = compare_strategies({'strategy1': result1, 'strategy2': result2})
+print(comparison)
+```
+
 ## Key Features
 
 ### Risk Management
@@ -194,6 +227,13 @@ results = trainer.run(full_data, n_periods=50)
 - Optimal rehedging frequency
 - Transition-aware hedging
 
+### Backtesting
+- Transaction costs and slippage
+- Walk-forward validation
+- Regime-specific analysis
+- Performance metrics (Sharpe, Sortino, Calmar)
+- Drawdown analysis
+
 ## Model Improvements Summary
 
 1. **Architecture**: Attention, Transformers, Bayesian, Ensemble, Hierarchical
@@ -203,6 +243,7 @@ results = trainer.run(full_data, n_periods=50)
 5. **Regime Modeling**: Transitions, Persistence, Calibration, Factors
 6. **Hedging**: Delta, Gamma, Transaction-aware, Transition-aware
 7. **Uncertainty**: Bayesian weights, Confidence sizing, Ensemble predictions
+8. **Backtesting**: Walk-forward, Regime-specific, Transaction costs, Performance metrics
 
 ## Dependencies
 - PyTorch

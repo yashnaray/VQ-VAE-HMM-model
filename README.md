@@ -1,4 +1,4 @@
-# Advanced VQ-VAE-HMM Portfolio Optimization System
+# VQ-VAE-HMM Portfolio Optimization System
 
 Complete implementation of regime-switching models with advanced portfolio optimization and delta hedging.
 

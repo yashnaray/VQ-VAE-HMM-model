@@ -1,6 +1,6 @@
 # VQ-VAE-HMM Portfolio Optimization System
 
-Complete implementation of regime-switching models with advanced portfolio optimization and delta hedging.
+Implementation of regime-switching models with advanced portfolio optimization and delta hedging.
 
 ## Core Modules
 
@@ -14,8 +14,8 @@ Base VQ-VAE-HMM model with proper Gaussian emissions and numerical stability.
 - `VAE_HMM`: Main model combining all components
 - `RandomChunkDataset`: Dataset for variable-length sequences
 
-### 2. advanced_portfolio_optimizer.py
-Advanced neural network architectures for portfolio optimization.
+### 2. portfolio_optimizer.py
+Neural network architectures for portfolio optimization.
 
 **Models:**
 - `AttentionPortfolioOptimizer`: Multi-head attention for regime weighting
@@ -24,7 +24,7 @@ Advanced neural network architectures for portfolio optimization.
 - `EnsemblePortfolioOptimizer`: Multiple models for robust predictions
 - `HierarchicalPortfolioOptimizer`: Macro → micro regime hierarchy
 
-### 3. advanced_loss_functions.py
+### 3. loss_functions.py
 Comprehensive loss functions for portfolio optimization.
 
 **Loss Functions:**
@@ -36,7 +36,7 @@ Comprehensive loss functions for portfolio optimization.
 - `adversarial_portfolio_loss`: Robustness to regime misclassification
 - `transition_aware_loss`: Accounts for expected regime changes
 
-### 4. advanced_training.py
+### 4. training.py
 Advanced training strategies and optimization techniques.
 
 **Classes:**

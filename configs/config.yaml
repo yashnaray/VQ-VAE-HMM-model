@@ -1,0 +1,34 @@
+# Model Configuration
+
+model:
+  input_dim: 5
+  hidden_dim: 64
+  hidden_dim2: 32
+  K: 3  # Number of regimes
+  u_dim: 4
+  trans_hidden: 128
+
+training:
+  batch_size: 64
+  num_epochs: 150
+  learning_rate: 1.0e-5
+  beta_warmup: true
+  gradient_clip: 1.0
+  device: cuda
+
+portfolio:
+  n_assets: 10
+  hidden_dim: 64
+  transaction_cost: 0.001
+  max_weight: 0.3
+  risk_free_rate: 0.0
+
+data:
+  min_len: 20
+  max_len: 200
+  train_path: "data/train_dataset_scaled.csv"
+  test_path: "data/test_dataset_scaled.csv"
+
+checkpoints:
+  save_dir: "checkpoints/"
+  save_freq: 10

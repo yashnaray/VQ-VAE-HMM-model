@@ -1,7 +1,7 @@
 # VQ-VAE-HMM Portfolio Optimization System
 
 Implementation of regime-switching models with portfolio optimization and delta hedging.
-
+Demo: https://huggingface.co/spaces/yashnarayan25/vqvaehmm
 ## Core Modules
 
 ### 1. VQ_VAE_HMM_fixed.py

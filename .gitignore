@@ -56,3 +56,10 @@ logs/
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Deployment
+hf_space/
+README_HF.md
+.gitattributes
+deploy_hf.bat
+DEPLOY_GUIDE.md

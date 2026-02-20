@@ -1,0 +1,12 @@
+{
+  "model": {
+    "input_dim": 5,
+    "hidden_dim": 64,
+    "K": 3,
+    "hidden_dim2": 32,
+    "u_dim": 4,
+    "trans_hidden": 128
+  },
+  "checkpoint_path": "checkpoints/vae_hmm_trained.pth",
+  "device": "cpu"
+}

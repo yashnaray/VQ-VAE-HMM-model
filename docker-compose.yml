@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  trainer:
+    build: .
+    environment:
+      - MODE=train
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["/bin/bash", "-lc", "./entrypoint.sh"]
+  server:
+    build: .
+    environment:
+      - MODE=serve
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["/bin/bash", "-lc", "./entrypoint.sh"]

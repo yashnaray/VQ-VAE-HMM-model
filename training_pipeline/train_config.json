@@ -1,0 +1,23 @@
+{
+  "model": {
+    "input_dim": 5,
+    "hidden_dim": 64,
+    "K": 3,
+    "hidden_dim2": 32,
+    "u_dim": 4,
+    "trans_hidden": 128
+  },
+  "data": {
+    "x_sequences_path": "data/x_sequences.pt",
+    "u_sequences_path": "data/u_sequences.pt",
+    "min_len": 20,
+    "max_len": 200
+  },
+  "training": {
+    "epochs": 100,
+    "lr": 0.0001,
+    "batch_size": 64,
+    "checkpoint_dir": "checkpoints",
+    "seed": 42
+  }
+}

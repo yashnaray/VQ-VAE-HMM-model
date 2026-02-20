@@ -21,7 +21,7 @@ class AttentionPortfolioOptimizer(nn.Module):
 
 
 class TransformerPortfolioOptimizer(nn.Module):
-    def __init__(self, K, n_assets, hidden_dim=64, n_layers=2, n_heads=4):
+    def __init__(self, K, n_assets, hidden_dim=64, n_layers=2, n_heads=1):
         super().__init__()
         self.K = K
         layer = nn.TransformerEncoderLayer(K, n_heads, hidden_dim, batch_first=True)
